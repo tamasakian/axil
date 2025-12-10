@@ -5,3 +5,7 @@
 
 !/jobs/
 !/jobs/profile.zsh
+
+!/libs/
+!/libs/utils/
+!/libs/utils/io.zsh
