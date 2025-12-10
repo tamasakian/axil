@@ -24,3 +24,19 @@ function log_error() {
     _log_message "ERROR" "$1" 2
     return 1
 }
+
+function parse_config() {
+    local config_file="$1"
+
+    if [ ! -f "$config_file" ]; then
+        log_error "config file not found: $config_file"
+        return 1
+    fi
+
+    if ! source "$config_file"; then
+        log_error "failed to source config file: $config_file"
+        return 1
+    fi
+
+    return 0
+}
