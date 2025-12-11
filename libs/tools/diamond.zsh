@@ -95,7 +95,7 @@ function run_blastp() {
     log_info "use DIAMOND_THREADS=${DIAMOND_THREADS}"
 
     : ${BLAST_EVALUE:="1e-5"}
-    log_info "Us3 BLAST_EVALUE=${BLAST_EVALUE}"
+    log_info "use BLAST_EVALUE=${BLAST_EVALUE}"
 
     local ref_fasta="${input_taskdir}/${REF_FASTA}"
     local qry_fasta="${input_taskdir}/${QRY_FASTA}"
