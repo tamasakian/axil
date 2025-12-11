@@ -19,11 +19,8 @@ function blastp_for_mcscanx() {
         return 1
     fi
 
-    if [ -z "$DIAMOND_THREADS" ]; then
-        local default_threads=1
-        DIAMOND_THREADS="$default_threads"
-        log_info "use default DIAMOND_THREADS: ${DIAMOND_THREADS}"
-    fi
+    : ${DIAMOND_THREADS:=1}
+    log_info "use DIAMOND_THREADS=${DIAMOND_THREADS}"
 
     local timestamp=$(date +"%Y%m%d%H%M%S")
     local output_taskname="P1-blastp_for_mcscanx-${timestamp}"
