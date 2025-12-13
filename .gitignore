@@ -9,6 +9,7 @@
 !/libs/
 !/libs/tools/
 !/libs/tools/diamond.zsh
+!/libs/tools/hmmer.zsh
 !/libs/tools/mcscanx.zsh
 
 !/libs/utils/
