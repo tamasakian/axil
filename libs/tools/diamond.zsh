@@ -97,6 +97,12 @@ function run_blastp() {
     : ${BLAST_EVALUE:="1e-5"}
     log_info "use BLAST_EVALUE=${BLAST_EVALUE}"
 
+    : ${MAX_TARGET_SEQS:="25"}
+    log_info "use MAX_TARGET_SEQ=${MAX_TARGET_SEQS}"
+
+    : ${QUERY_COVER:="80"}
+    log_info "use QUERY_COVER=${QUERY_COVER}"
+
     local ref_fasta="${input_taskdir}/${REF_FASTA}"
     local qry_fasta="${input_taskdir}/${QRY_FASTA}"
     if [ ! -f "$ref_fasta" ] || [ ! -f "$qry_fasta" ]; then
@@ -122,6 +128,8 @@ function run_blastp() {
         -o "$output_file" \
         --evalue "$BLAST_EVALUE" \
         --threads "$DIAMOND_THREADS" \
+        --max-target-seqs "$MAX_TARGET_SEQS" \
+        --query-cover "$QUERY_COVER" \
         --outfmt 6; then
 
         log_error "diamond blastp execution failed"
