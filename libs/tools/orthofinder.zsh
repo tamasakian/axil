@@ -23,7 +23,6 @@ function run_orthofinder() {
     local timestamp=$(date +"%Y%m%d%H%M%S")
     local output_taskname="P1-orthofinder-${timestamp}"
     local output_taskdir="${TASKS}/${output_taskname}"
-    mkdir -p "$output_taskdir"
 
     local orthofinder_cmd="orthofinder -f ${INPUT_DIR} -t ${ORTHOFINDER_THREADS} -o ${output_taskdir}"
     log_info "running Orthofinder with command: ${orthofinder_cmd}"
