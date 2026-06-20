@@ -14,10 +14,8 @@ function run_orthofinder() {
         return 1
     fi
 
-    if ! typeset -p SPECIES_LIST 2>/dev/null || [ ${#SPECIES_LIST} -eq 0 ]; then
-        log_error "SPECIES_LIST array is undefined or empty"
-        return 1
-    fi
+    : ${INPUT_DIR:=${input_taskdir}/input}
+    log_info "use INPUT_DIR=${INPUT_DIR}"
 
     : ${ORTHOFINDER_THREADS:=1}
     log_info "use ORTHOFINDER_THREADS=${ORTHOFINDER_THREADS}"
@@ -27,7 +25,7 @@ function run_orthofinder() {
     local output_taskdir="${TASKS}/${output_taskname}"
     mkdir -p "$output_taskdir"
 
-    local orthofinder_cmd="orthofinder -f ${input_taskdir} -t ${ORTHOFINDER_THREADS} -o ${output_taskdir}"
+    local orthofinder_cmd="orthofinder -f ${INPUT_DIR} -t ${ORTHOFINDER_THREADS} -o ${output_taskdir}"
     log_info "running Orthofinder with command: ${orthofinder_cmd}"
 
     if ! eval "$orthofinder_cmd"; then
