@@ -11,6 +11,7 @@
 !/libs/tools/diamond.zsh
 !/libs/tools/hmmer.zsh
 !/libs/tools/mcscanx.zsh
+!/libs/tools/orthofinder.zsh
 
 !/libs/utils/
 !/libs/utils/io.zsh
